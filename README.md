@@ -11,11 +11,11 @@ This converter is part of a broader allele discovery and curation process, descr
 4. Export novel allele sequences, with annotations, into GenBank flat file format. At the same time, export the sequences _without annotations_ in FASTA format.
 5. **Run IPD converter on the GenBank and FASTA file. Instructions below.**
 6. Review these converted files and add animal or isolate names to each review.
-7. **Rerun IPD converter on the EMBL file with animal names inserted, if desired. Note that this step is not necessary—it simply splits the full EMBL into individual files and compresses them in a tarball.
+7. **Rerun IPD converter on the EMBL file with animal names inserted, if desired. Note that this step is not necessary—it simply splits the full EMBL into individual files and compresses them in a tarball**.
 8. [Submit to IPD](https://www.ebi.ac.uk/ipd/submission/).
 
 ## Quick start
-Please not that this converter requires that you have Docker, Git, Java, and NextFlow installed on your system. If you do not have these dependencies installed, proceed to the **Detailed Instructions** section below.
+Please not that this converter requires that you have Docker, Git, Java, and NextFlow installed on your system. If you do not have these dependencies installed, proceed to the **Detailed Setup Instructions** section below.
 
 Additionally, this converter has only been tested on x86 systems and was developed with NextFlow version 22.10.0.5826. Mileage may vary on other compute architectures or Nextflow versions.
 
@@ -29,3 +29,65 @@ nextflow dholab/IPD-converter -latest \
 ```
 
 The experiment number gives users the opportunity to use numbers from their own experiment and file tracking systems. However, if the user is not working with such a system, simply use this argument to name the final folder where the converted files will be placed.
+
+## Detailed Setup Instructions
+
+First, make sure you are using an POSIXct-compatible system (e.g. MacOS, Linux, [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install)) with Git installed.
+
+Then, download the converter files by running `git clone` in a directory of your choice:
+
+```
+git clone https://github.com/dholab/AVRL-pango-updator.git .
+```
+
+Next, the Docker engine must be installed if it isn't already. To do so, simply visit the Docker installation page at [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/) to find instructions for your system.
+
+Most systems already java installed; run `java --version` in a terminal to check if yours does as well. If java is not installed, visit [Oracle's Java installation page](https://www.oracle.com/java/technologies/downloads/).
+
+### Nextflow Installation
+
+This pipeline was built with the [NextFlow](https://www.nextflow.io/) pipeline manager (v22.10.0.5826). We recommend you install NextFlow to your system in one of the two following ways:
+
+#### 1) Installation with Conda
+
+1. If you do not have install conda installed, go to the following link to download Miniconda: [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
+2. Install the `mamba` package installation tool in the command line, which will make conda usage much faster:
+   `conda install -y -c conda-forge mamba`
+3. Install Nextflow to your base environment:
+   `mamba install -c bioconda nextflow `
+
+#### 2) Installation with curl
+
+If you would prefer not to use conda at all, you can also install NextFlow with curl:
+
+1. Run the following line in a directory where you'd like to install NextFlow:
+   `curl -fsSL https://get.nextflow.io | bash`
+2. Add this directory to your $PATH. If on MacOS, a helpful guide can be viewed [here](https://www.architectryan.com/2012/10/02/add-to-the-path-on-mac-os-x-mountain-lion/).
+
+To double check that the installation was successful, type `nextflow -v` into the terminal. If it returns something like `nextflow version 21.04.0.5552`, NextFlow has successfully installed.
+
+Once all the above dependencies are installed, you are ready to run the converter.
+
+### Running the pipeline
+
+The pipeline is invoked from the working directory where you downloaded it with a shell command, which looks something like this:
+
+```
+nextflow run main.nf \
+--input_data data/ \
+--species "Macaca mulatta" \
+--experiment_number 27909
+```
+
+If you are re-running the converter to split and tar a manually edited EMBL file, simply do so with:
+
+```
+nextflow run main.nf \
+--curated_embl data/curated.embl \
+--input_data data/ \
+--species "Macaca mulatta" \
+--experiment_number 27909
+```
+
+You may change `curated.embl` to whatever filename you've used and place it anywhere on your system as long as you provide the absolute file path.
+
