@@ -27,6 +27,7 @@ nextflow dholab/IPD-converter -latest \
 --species "Macaca mulatta" \
 --experiment_number 1
 ```
+By default, the converter looks for a _single_ FASTA and a single GenBank in a subdirectory of where you launched it called `data`. However, you may place the FASTA and GenBank files anywhere as long as you supply the absolute path after the `--input_data` flag.
 
 The experiment number gives users the opportunity to use numbers from their own experiment and file tracking systems. However, if the user is not working with such a system, simply use this argument to name the final folder where the converted files will be placed.
 
