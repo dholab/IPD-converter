@@ -15,7 +15,7 @@ This converter is part of a broader allele discovery and curation process, descr
 8. [Submit to IPD](https://www.ebi.ac.uk/ipd/submission/).
 
 ## Quick start
-Please not that this converter requires that you have Docker, Git, Java, and NextFlow installed on your system. If you do not have these dependencies installed, proceed to the **Detailed Setup Instructions** section below.
+Please note that this converter requires that you have Docker, Git, Java, and NextFlow installed on your system. If you do not have these dependencies installed, proceed to the **Detailed Setup Instructions** section below.
 
 Additionally, this converter has only been tested on x86 systems and was developed with NextFlow version 22.10.0.5826. Mileage may vary on other compute architectures or Nextflow versions.
 
