@@ -10,7 +10,9 @@ import pandas as pd
 
 embl_file = SeqIO.parse(sys.argv[1], "embl")
 fasta_file = sys.argv[2]
-species = sys.argv[3]
+genus = str(sys.argv[3])
+species = str(sys.argv[4])
+scientific_name = f"{genus} {species}"
 
 with open("error.emb", "w") as error_handle:
 	with open("oc.emb", "w") as output_handle:
@@ -23,7 +25,7 @@ with open("error.emb", "w") as error_handle:
 			
 			# add source annotation
 			source_feature = SeqFeature(FeatureLocation(0, len(record)), type="source")
-			source_feature.qualifiers["organism"] = species
+			source_feature.qualifiers["organism"] = scientific_name
 			source_feature.qualifiers["mol_type"] = 'genomic DNA'
 			source_feature.qualifiers["geneious_id"] = record.id
 
@@ -50,13 +52,13 @@ with open("error.emb", "w") as error_handle:
 			allele_name = record.description.split('|')[0] # + "_" + allele_index
 
 			# change organism to species, which is what IPD wants
-			record.annotations['organism'] = species
+			record.annotations['organism'] = scientific_name
 			
 			# move allele name from description to accession
 			record.annotations['accession'] = allele_name
 		
 			# change description to full-length name requested by IPD using regular expressions
-			record.description = species + ' gene for MHC class I antigen (' + animal_name + ' gene), isolate ' + animal_name + ', allele ' + allele_name
+			record.description = scientific_name + ' gene for MHC class I antigen (' + animal_name + ' gene), isolate ' + animal_name + ', allele ' + allele_name
 			
 			# add decoration to CDS annotation
 			# remove standard_name lint from Gneeious from CDS anntoation

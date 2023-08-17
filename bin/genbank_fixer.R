@@ -25,6 +25,11 @@ no_geneious_notes <- which( !grepl("Derived using Geneious Prime 2020.1.2", gbk$
 gbk <- data.frame(V1 = gbk[no_geneious_notes, ])
 no_geneious_notes <- which(!grepl("from Database' based on nucleotide similarity", gbk$V1))
 gbk <- data.frame(V1 = gbk[no_geneious_notes, ])
+no_geneious_notes <- which( !grepl("/Source=Geneious", gbk$V1))
+gbk <- data.frame(V1 = gbk[no_geneious_notes, ])
+no_geneious_notes <- which( !grepl("/modified_by=", gbk$V1))
+gbk <- data.frame(V1 = gbk[no_geneious_notes, ])
+
 # 
 # # renaming version and accession lines
 # for (i in 1:length(version_lines)){

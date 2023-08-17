@@ -140,7 +140,7 @@ process CONVERT_GENBANK_TO_EMBL {
 	
 	script:
 	"""
-	convert_genbank_to_embl.py ${gbk} ${params.species}
+	convert_genbank_to_embl.py ${gbk} "${params.species}"
 	"""
 }
 
