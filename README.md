@@ -38,7 +38,7 @@ First, make sure you are using an POSIXct-compatible system (e.g. MacOS, Linux, 
 Then, download the converter files by running `git clone` in a directory of your choice:
 
 ```
-git clone https://github.com/dholab/AVRL-pango-updator.git .
+git clone https://github.com/dholab/IPD-converter.git .
 ```
 
 Next, the Docker engine must be installed if it isn't already. To do so, simply visit the Docker installation page at [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/) to find instructions for your system. NextFlow will use docker to automatically pull the images specified in `nextflow.config`—`rocker/tidyverse:4.2.2` and `dockerreg.chtc.wisc.edu/dhoconno/mesmerizer:27928`—which will supply the converter's software dependencies. This means the converter will always run with the same versions of its dependencies, and also that you do not need to install these dependencies permanently on your system.
