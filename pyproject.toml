@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "ipd-converter"
+version = "0.1.0"
+description = "Nextflow pipeline for converting annotated, genbank-formatted novel allele sequences to Immuno Polymorphism Database format"
+authors = ["Nicholas Minor <nrminor@wisc.edu>"]
+license = "GPL"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+bio = "^1.6.2"
+pathlib = "^1.0.1"
+pandas = "^2.2.1"
+nextflow = "^23.10.1"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.3.0"
+pdoc = "^14.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

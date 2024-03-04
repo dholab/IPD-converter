@@ -13,3 +13,17 @@ timeline.html*
 report.html*
 *.dot
 *.png.*
+
+.Rhistory
+._*
+.nextflow.pid*
+submit_workflow.sh
+poetry.lock
+Manifest.toml
+
+*input*/
+scratch/
+sandbox/
+data/
+genbank/
+genbanks/
