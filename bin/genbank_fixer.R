@@ -21,7 +21,7 @@ gbk <- read.delim(args[1], header = F)
 locus_lines <- which(grepl("LOCUS", gbk$V1))
 
 # removing Geneious notes
-no_geneious_notes <- which( !grepl("Derived using Geneious Prime 2020.1.2", gbk$V1))
+no_geneious_notes <- which( !grepl("Derived using Geneious Prime 2022.0.2", gbk$V1))
 gbk <- data.frame(V1 = gbk[no_geneious_notes, ])
 no_geneious_notes <- which(!grepl("from Database' based on nucleotide similarity", gbk$V1))
 gbk <- data.frame(V1 = gbk[no_geneious_notes, ])

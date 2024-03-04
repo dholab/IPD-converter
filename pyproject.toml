@@ -12,11 +12,15 @@ bio = "^1.6.2"
 pathlib = "^1.0.1"
 pandas = "^2.2.1"
 nextflow = "^23.10.1"
+xmltodict = "^0.13.0"
 
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.3.0"
 pdoc = "^14.4.0"
+marimo = "^0.2.13"
+jupyter = "^1.0.0"
+ipykernel = "^6.29.3"
 
 [build-system]
 requires = ["poetry-core"]

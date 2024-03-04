@@ -27,3 +27,5 @@ sandbox/
 data/
 genbank/
 genbanks/
+*ipynb*
+*.mo*
