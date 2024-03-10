@@ -1,5 +1,9 @@
 # Nextflow pipeline for converting novel allele sequences to Immuno Polymorphism Database format
 
+## Archive Note:
+
+This repo has been superceded by [dholab/embl-my-gbk](https://github.com/dholab/embl-my-gbk), and is thus now in read-only Archive Mode. We recommend users looking to convert Genbank files to IPD-specific EMBL files clone dholab/embl-my-gbk instead of this repo.
+
 ## Overview
 This converter was meant to solve a routine problem for the [AVRL](https://dholk.primate.wisc.edu/wiki/home/page.view?name=home_index) Host Genomics Team: Converting putative novel allele sequences, discovered in macaque MHC genes, to the EMBL-like format required by the [Immuno Polymorphism Database](https://www.ebi.ac.uk/ipd/) (IPD). This is a crucial step in documenting new MHC sequences that are relevant to biomedical research around the world. If we can automate this step, IPD's uploading process can run with fewer errors, and  novel sequences can thus become available to the research community more quickly.
 
