@@ -1,6 +1,6 @@
 # Nextflow pipeline for converting novel allele sequences to Immuno Polymorphism Database format
 
-## Archive Note:
+## Archive Note
 
 This repo has been superceded by [dholab/embl-my-gbk](https://github.com/dholab/embl-my-gbk), and is thus now in read-only Archive Mode. We recommend users looking to convert Genbank files to IPD-specific EMBL files clone dholab/embl-my-gbk instead of this repo.
 
